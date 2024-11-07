@@ -14,7 +14,7 @@ resource "azurerm_storage_account" "jira_storage" {
     bypass         = ["AzureServices", "Logging", "Metrics"]
     ip_rules = [
       "49.187.14.30",
-      tostring(data.http.tfe_agent_public_ip.request_body)
+      tostring(data.http.tfe_agent_public_ip.response_body)
     ]
     virtual_network_subnet_ids = [
       azurerm_subnet.db_subnet.id,
