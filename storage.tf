@@ -1,7 +1,7 @@
 # storage account for shared FS
 # Create the File Share
 ## Create the File storage account
-/*resource "azurerm_storage_account" "jira_storage" {
+resource "azurerm_storage_account" "jira_storage" {
   name                     = lower("jirasa${random_string.stor_name.result}")
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
@@ -14,8 +14,7 @@
     bypass         = ["AzureServices", "Logging", "Metrics"]
     ip_rules = [
       "49.187.14.30",
-      "75.2.98.97",
-      "99.83.150.238"
+      tostring(data.http.tfe_agent_public_ip.response_body)
     ]
     virtual_network_subnet_ids = [
       azurerm_subnet.db_subnet.id,
@@ -42,4 +41,4 @@ resource "azurerm_key_vault_secret" "jira_storage_name" {
   key_vault_id = azurerm_key_vault.kv01.id
   name         = "jirastoragename"
   value        = lower("jirasa${random_string.stor_name.result}")
-}*/
+}

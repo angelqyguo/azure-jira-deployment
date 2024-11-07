@@ -1,5 +1,5 @@
 # Resource group name
-/*output "resource_group_name" {
+output "resource_group_name" {
   value = azurerm_resource_group.rg.name
 }
 
@@ -12,4 +12,4 @@ output "public_ip_address" {
 output "storage_account_share" {
   description = "Name of the Azure File Share created for FSLogix"
   value       = azurerm_storage_share.jira_FSShare
-}*/
+}
