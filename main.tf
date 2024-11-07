@@ -1,5 +1,5 @@
 # Random string
-resource "random_string" "stor_name" {
+/*resource "random_string" "stor_name" {
   length  = 8
   lower   = true
   special = false
@@ -145,3 +145,4 @@ resource "azurerm_linux_virtual_machine" "jira_host_vm" {
     azurerm_key_vault.kv01
   ]
 }
+*/

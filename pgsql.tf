@@ -1,5 +1,5 @@
 # Create the Database
-resource "random_integer" "psqladmin_suffix" {
+/*resource "random_integer" "psqladmin_suffix" {
   min = 1000
   max = 9999
 }
@@ -53,4 +53,4 @@ resource "azurerm_postgresql_flexible_server_database" "jiradb" {
   server_id = azurerm_postgresql_flexible_server.jiradbserver.id
   collation = "en_US.utf8"
   charset   = "utf8"
-}
+}*/

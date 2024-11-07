@@ -1,7 +1,7 @@
 # storage account for shared FS
 # Create the File Share
 ## Create the File storage account
-resource "azurerm_storage_account" "jira_storage" {
+/*resource "azurerm_storage_account" "jira_storage" {
   name                     = lower("jirasa${random_string.stor_name.result}")
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
@@ -42,4 +42,4 @@ resource "azurerm_key_vault_secret" "jira_storage_name" {
   key_vault_id = azurerm_key_vault.kv01.id
   name         = "jirastoragename"
   value        = lower("jirasa${random_string.stor_name.result}")
-}
+}*/
