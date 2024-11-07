@@ -1,0 +1,18 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - git
+
+ansible:
+  package_name: ansible-core
+  install_method: distro
+  run_user: root
+  setup_controller:
+    repositories:
+      - path: /root/ansible-jiranode-playbook
+        source: https://github.com/angelqyguo/ansible-jiranode-playbook.git
+    run_ansible:
+      - playbook_dir: /root/ansible-jiranode-playbook
+        playbook_name: jiranode-init.yml
+        extra_vars: "pgsql_server_fqdn='${pgsql_server_fqdn}' jira_db_name='${jira_db_name}' key_vault_uri='${key_vault_uri}' fs_name='${fs_name}'"
